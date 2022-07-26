@@ -31,6 +31,7 @@ function CryptoTracker(){
 
     return(
         <div className="myTracker">
+            <h1 className="mainH"><i>Top 150 Cryptocurrencies</i></h1>
             {allCoins}
         </div>
     )

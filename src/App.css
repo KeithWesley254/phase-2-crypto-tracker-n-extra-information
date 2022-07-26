@@ -67,6 +67,12 @@
   transform: translateX(0);
 }
 
+.myTracker .mainH{
+  text-align: center;
+  border-bottom: 3px solid #fff;
+  border-top: 4px solid #fff;
+}
+
 .coinContainer{
   display: flex;
   justify-content: center;
