@@ -1,20 +1,12 @@
 import '../App.css';
+import FeedBack from "./FeedBack";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          And so it Begins...
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <FeedBack />
       </header>
     </div>
   );
