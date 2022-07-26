@@ -1,6 +1,6 @@
 import React from "react";
 
-function Coins({ coinName, cryptoImg, cryptoSymbol, price, volume }){
+function Coins({ coinName, cryptoImg, cryptoSymbol, price, volume, priceChange, mktCap }){
     return(
         <div className="coinContainer">
             <div className="coinRow">
@@ -9,10 +9,22 @@ function Coins({ coinName, cryptoImg, cryptoSymbol, price, volume }){
                     <h1>{coinName}</h1>
                     <p className="coinSymbol">{cryptoSymbol}</p>
                 </div>
-                <div>
+                <div className="coinInfo">
                     <p className="coinPrice">${price}</p>
                     <p className="coinVolume">${volume.toLocaleString()}</p>
-
+                    {priceChange < 0  
+                    ? (
+                        <p className="coinP Red">
+                            {priceChange.toFixed(2)}%
+                        </p>
+                    )
+                    :   <p className="coinP Green">
+                        {priceChange.toFixed(2)}%
+                        </p>
+                    }
+                    <p className="coinMktCap">
+                        Mkt Cap: ${mktCap.toLocaleString()}
+                    </p>
                 </div>
             </div>
         </div>

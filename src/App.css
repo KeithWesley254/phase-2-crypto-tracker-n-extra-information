@@ -2,6 +2,7 @@
   background: rgb(36, 36, 36);
   color: #fff;
 }
+
 .nav{
   display: flex;
   align-items: center;
@@ -17,24 +18,29 @@
   gap: 3rem;
   background: #0786f2;
 }
+
 .navMenu li{
   list-style: none;
   background: #0786f2;
 }
+
 .navMenu a{
   text-decoration: none;
   color: #fff;
   background: #0786f2;
 }
+
 .navMenu a:hover{
   color: #000;
 }
+
 .switchNavs div{
   width: 2rem;
   height: 0.2rem;
   margin: 0.4rem;
   background: #fff;
 }
+
 .switchNavs{
   cursor: pointer;
   display: none;
@@ -59,4 +65,72 @@
 
 .navActive{
   transform: translateX(0);
+}
+
+.coinContainer{
+  display: flex;
+  justify-content: center;
+}
+
+.coinRow{
+  display: flex;
+  flex-direction: row;
+  justify-items: start;
+  align-items: center;
+  height: 80px;
+  border-bottom: 1px solid #fff;
+  width: 80%;
+}
+
+.coin{
+  display: flex;
+  align-items: center;
+  padding-right: 14px;
+  min-width: 300px;
+}
+
+.coin h1{
+  font-size: 16px;
+  width: 150px;
+}
+
+.coin img{
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
+}
+
+.coinSymbol{
+  text-transform: uppercase;
+}
+
+.coinInfo{
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.coinPrice{
+  width: 110px;
+}
+
+.coinVolume{
+  width: 200px;
+}
+
+.coinMktCap {
+  width: 240px;
+}
+
+.coinP {
+  width: 80px;
+}
+
+.Red{
+  color: #f00606;
+}
+
+.Green{
+  color: #11d811;
 }
