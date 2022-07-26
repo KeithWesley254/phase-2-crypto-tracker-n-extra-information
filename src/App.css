@@ -1,41 +1,52 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.nav{
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-around;
+  height: 8vh;
+  background: #0786f2;
 }
 
-.App-link {
-  color: #61dafb;
+.navMenu{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 3rem;
+}
+.navMenu li{
+  list-style: none;
+}
+.navMenu a{
+  text-decoration: none;
+  color: #fff;
+}
+.switchNavs div{
+  width: 2rem;
+  height: 0.2rem;
+  margin: 0.4rem;
+  background: #fff;
+}
+.switchNavs{
+  cursor: pointer;
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .switchNavs{
+    display: block;
+  }
+  .navMenu{
+    position: fixed;
+    top: 7vh;
+    right: 0;
+    width: 40%;
+    height: 93vh;
+    background: #0786f2;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: 0.3s ease-in;
+  }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-.formCommentZ{
-  
+.navActive{
+  transform: translateX(0);
 }
