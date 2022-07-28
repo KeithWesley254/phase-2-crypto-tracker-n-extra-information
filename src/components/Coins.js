@@ -10,8 +10,8 @@ function Coins({ coinName, cryptoImg, cryptoSymbol, price, volume, priceChange, 
                     <p className="coinSymbol">{cryptoSymbol}</p>
                 </div>
                 <div className="coinInfo">
-                    <p className="coinPrice">${price}</p>
-                    <p className="coinVolume">${volume.toLocaleString()}</p>
+                    <p className="coinPrice">Price: ${price}</p>
+                    <p className="coinVolume">Volume: ${volume.toLocaleString()}</p>
                     {priceChange < 0  
                     ? (
                         <p className="coinP Red">

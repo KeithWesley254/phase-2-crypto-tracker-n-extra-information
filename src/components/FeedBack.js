@@ -1,60 +1,37 @@
-import React, { useState } from "react";
-import { Form } from "react-bootstrap";
-import { Button } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
 import FeedBackComments from "./FeedBackComments";
+import CommentForm from "./CommentForm";
 
 function FeedBack(){
-    const [formData, setFormData] = useState({
-        fullNames: '',
-        email: '',
-        comments: '',
-    })
-    
-    function handleChange(e){
-        setFormData({
-            ...formData, [e.target.name]: e.target.value,
-        });
+
+    const [commentsZ, setCommentsZ] = useState([])
+
+    useEffect(() => {
+        fetch('https://phase2-api.herokuapp.com/userdata')
+        .then(r => r.json())
+        .then(data => setCommentsZ(data))
+    }, []);
+
+    function handlePosting(data){
+        setCommentsZ([...commentsZ, data])
     }
 
-    function handleSubmit(e){
-        e.preventDefault();
-        fetch('http://localhost:3003/userdata',{
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(formData)
+    function deleteComm(id){
+        fetch(`https://phase2-api.herokuapp.com/userdata/${id}`,{
+            method: "DELETE",
         })
-
-        setFormData({
-            fullNames: '',
-            email: '',
-            comments: '',
-        })
-    }
+        .then(r => r.json())
+        .then(() => {
+            const goThru = commentsZ.filter((comment) => comment.id !== id)
+                setCommentsZ(goThru)
+            })
+        }
 
     return (
         <div>
-            <Form onSubmit={handleSubmit}>
-            <Form.Group controlId="formNameX">
-                <Form.Label>Full Name</Form.Label>
-                <Form.Control name="fullNames" type="text" value={formData.fullNames} placeholder="Enter your full name..." onChange={handleChange}/>
-            </Form.Group>
-            <Form.Group controlId="formEmailX">
-                <Form.Label>Email Address</Form.Label>
-                <Form.Control name="email" type="email" value={formData.email} placeholder="Enter your email address..." onChange={handleChange}/>
-            </Form.Group>
-            <Form.Group className="formCommentZ" controlId="formCommentX">
-                <Form.Label>Leave us a comment</Form.Label>
-                <Form.Control name="comments" type="text" as="textarea" rows="3" value={formData.comments} placeholder="Leave us a comment..." onChange={handleChange}/>
-            </Form.Group>
+            <CommentForm handlePosting={handlePosting}/>
             <br/>
-            <Button type="submit">
-                Submit
-            </Button>
-        </Form>
-        <br/>
-        <FeedBackComments />
+            <FeedBackComments commentEd={commentsZ} deleteComm={deleteComm}/>
         </div>  
     )
 }

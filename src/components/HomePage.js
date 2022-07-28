@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 function HomePage(){
+
     return(
-        <p>Home</p>
+        <div>
+            <div>
+                <p>My Welcome Message</p>
+            </div>
+        </div>
     )
 }
 

@@ -1,22 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
-function FeedBackComments(){
+function FeedBackComments({ commentEd, deleteComm }){
 
-    const [commentsZ, setCommentsZ] = useState([])
+    const displayComments = commentEd.map((comment) => {
 
-    useEffect(() => {
-        fetch('http://localhost:3003/userdata')
-        .then(r => r.json())
-        .then(data => setCommentsZ(data))
-    }, []);
-
-    // console.log(comments)
-
-    const displayComments = commentsZ.map((comment) => {
+        function handleDelete(){
+            deleteComm(comment.id)
+        }
         return (
             <div key={comment.id}>
                 <h2><b>{comment.fullNames}</b></h2>
                 <p><i>-{comment.comments}</i></p>
+                <button onClick={handleDelete}>Delete</button>
             </div>
         )
     })

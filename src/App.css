@@ -73,6 +73,11 @@
   border-top: 4px solid #fff;
 }
 
+.myTracker .mainH5{
+  text-align: center;
+  border-bottom: 3px solid #fff;
+}
+
 .coinContainer{
   display: flex;
   justify-content: center;
@@ -139,4 +144,8 @@
 
 .Green{
   color: #11d811;
+}
+
+.cryImg img{
+  width: 768px;
 }
